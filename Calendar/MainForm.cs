@@ -26,10 +26,41 @@ namespace Calendar
         int _currentDay = DateTime.Today.Day;
         int _currentHour = DateTime.Today.Hour;
 
+        private void LoadSwitchHandlers()
+        {
+            switchYear.SelectedIndexChanged += switchYear_SelectedIndexChanged;
+            switchMonth.SelectedIndexChanged += switchMonth_SelectedIndexChanged;
+        }
+
+        private void LoadSwitchYear()
+        {
+            int min = 1918;
+
+            do
+            {
+                switchYear.Items.Add(min++);
+            }
+            while (min <= 2118);
+        }
+
+        private void LoadSwitchMonth()
+        {
+            switchMonth.Items.Add("January");
+            switchMonth.Items.Add("February");
+            switchMonth.Items.Add("March");
+            switchMonth.Items.Add("April");
+            switchMonth.Items.Add("May");
+            switchMonth.Items.Add("June");
+            switchMonth.Items.Add("July");
+            switchMonth.Items.Add("August");
+            switchMonth.Items.Add("September");
+            switchMonth.Items.Add("October");
+            switchMonth.Items.Add("November");
+            switchMonth.Items.Add("December");
+        }
+
         private void LoadDayButtonsList()
         {
-            _dayButtons = new List<Button>();
-
             _dayButtons.Add(btnDay1);
             _dayButtons.Add(btnDay2);
             _dayButtons.Add(btnDay3);
@@ -68,6 +99,12 @@ namespace Calendar
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
 
+            LoadSwitchYear();
+            LoadSwitchMonth();
+
+            switchYear.Text = _currentYear.ToString();
+            switchMonth.Text = DateTime.Today.ToString("MMMM", CultureInfo.CreateSpecificCulture("en-US"));
+
             LoadDayButtonsList();
 
             LoadMonthView(_currentYear, _currentMonth);
@@ -75,7 +112,7 @@ namespace Calendar
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-           
+            LoadSwitchHandlers();
         }
 
         private void LoadMonthView(int year, int month)
@@ -97,6 +134,22 @@ namespace Calendar
                     dt = dt.AddDays(1);
                     break;
                 }
+            }
+        }
+
+        private void switchMonth_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(switchYear.Text))
+            {
+                LoadMonthView(Convert.ToInt32(switchYear.Text), switchMonth.SelectedIndex + 1);
+            }
+        }
+
+        private void switchYear_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(switchYear.Text))
+            {
+                LoadMonthView(Convert.ToInt32(switchYear.Text), switchMonth.SelectedIndex + 1);
             }
         }
 
