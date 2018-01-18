@@ -132,7 +132,6 @@
             this.switchMonth.Name = "switchMonth";
             this.switchMonth.Size = new System.Drawing.Size(271, 36);
             this.switchMonth.TabIndex = 108;
-            this.switchMonth.TextChanged += new System.EventHandler(this.switchMonth_TextChanged);
             // 
             // btnDay30
             // 
@@ -148,7 +147,6 @@
             this.btnDay30.TabIndex = 107;
             this.btnDay30.Text = "30";
             this.btnDay30.UseVisualStyleBackColor = true;
-            this.btnDay30.Click += new System.EventHandler(this.btnDays_Click);
             // 
             // switchYear
             // 
@@ -159,7 +157,6 @@
             this.switchYear.Name = "switchYear";
             this.switchYear.Size = new System.Drawing.Size(128, 36);
             this.switchYear.TabIndex = 106;
-            this.switchYear.TextChanged += new System.EventHandler(this.switchYear_TextChanged);
             // 
             // btnDay28
             // 
@@ -175,7 +172,6 @@
             this.btnDay28.TabIndex = 105;
             this.btnDay28.Text = "28";
             this.btnDay28.UseVisualStyleBackColor = true;
-            this.btnDay28.Click += new System.EventHandler(this.btnDays_Click);
             // 
             // btnDay29
             // 
@@ -191,7 +187,6 @@
             this.btnDay29.TabIndex = 104;
             this.btnDay29.Text = "29";
             this.btnDay29.UseVisualStyleBackColor = true;
-            this.btnDay29.Click += new System.EventHandler(this.btnDays_Click);
             // 
             // btnDay31
             // 
@@ -207,7 +202,6 @@
             this.btnDay31.TabIndex = 103;
             this.btnDay31.Text = "31";
             this.btnDay31.UseVisualStyleBackColor = true;
-            this.btnDay31.Click += new System.EventHandler(this.btnDays_Click);
             // 
             // btnDay23
             // 
@@ -223,7 +217,6 @@
             this.btnDay23.TabIndex = 101;
             this.btnDay23.Text = "23";
             this.btnDay23.UseVisualStyleBackColor = true;
-            this.btnDay23.Click += new System.EventHandler(this.btnDays_Click);
             // 
             // btnDay24
             // 
@@ -239,7 +232,6 @@
             this.btnDay24.TabIndex = 100;
             this.btnDay24.Text = "24";
             this.btnDay24.UseVisualStyleBackColor = true;
-            this.btnDay24.Click += new System.EventHandler(this.btnDays_Click);
             // 
             // btnDay25
             // 
@@ -255,7 +247,6 @@
             this.btnDay25.TabIndex = 99;
             this.btnDay25.Text = "25";
             this.btnDay25.UseVisualStyleBackColor = true;
-            this.btnDay25.Click += new System.EventHandler(this.btnDays_Click);
             // 
             // btnDay26
             // 
@@ -271,7 +262,6 @@
             this.btnDay26.TabIndex = 98;
             this.btnDay26.Text = "26";
             this.btnDay26.UseVisualStyleBackColor = true;
-            this.btnDay26.Click += new System.EventHandler(this.btnDays_Click);
             // 
             // btnDay27
             // 
@@ -287,7 +277,6 @@
             this.btnDay27.TabIndex = 97;
             this.btnDay27.Text = "27";
             this.btnDay27.UseVisualStyleBackColor = true;
-            this.btnDay27.Click += new System.EventHandler(this.btnDays_Click);
             // 
             // btnDay22
             // 
@@ -303,7 +292,6 @@
             this.btnDay22.TabIndex = 96;
             this.btnDay22.Text = "22";
             this.btnDay22.UseVisualStyleBackColor = true;
-            this.btnDay22.Click += new System.EventHandler(this.btnDays_Click);
             // 
             // btnDay16
             // 
@@ -319,7 +307,6 @@
             this.btnDay16.TabIndex = 95;
             this.btnDay16.Text = "16";
             this.btnDay16.UseVisualStyleBackColor = true;
-            this.btnDay16.Click += new System.EventHandler(this.btnDays_Click);
             // 
             // btnDay17
             // 
@@ -335,7 +322,6 @@
             this.btnDay17.TabIndex = 94;
             this.btnDay17.Text = "17";
             this.btnDay17.UseVisualStyleBackColor = true;
-            this.btnDay17.Click += new System.EventHandler(this.btnDays_Click);
             // 
             // btnDay18
             // 
@@ -351,7 +337,6 @@
             this.btnDay18.TabIndex = 93;
             this.btnDay18.Text = "18";
             this.btnDay18.UseVisualStyleBackColor = true;
-            this.btnDay18.Click += new System.EventHandler(this.btnDays_Click);
             // 
             // btnDay19
             // 
@@ -367,7 +352,6 @@
             this.btnDay19.TabIndex = 92;
             this.btnDay19.Text = "19";
             this.btnDay19.UseVisualStyleBackColor = true;
-            this.btnDay19.Click += new System.EventHandler(this.btnDays_Click);
             // 
             // btnDay20
             // 
@@ -383,7 +367,6 @@
             this.btnDay20.TabIndex = 91;
             this.btnDay20.Text = "20";
             this.btnDay20.UseVisualStyleBackColor = true;
-            this.btnDay20.Click += new System.EventHandler(this.btnDays_Click);
             // 
             // btnDay21
             // 
@@ -399,7 +382,6 @@
             this.btnDay21.TabIndex = 90;
             this.btnDay21.Text = "21";
             this.btnDay21.UseVisualStyleBackColor = true;
-            this.btnDay21.Click += new System.EventHandler(this.btnDays_Click);
             // 
             // btnDay15
             // 
@@ -415,7 +397,6 @@
             this.btnDay15.TabIndex = 89;
             this.btnDay15.Text = "15";
             this.btnDay15.UseVisualStyleBackColor = true;
-            this.btnDay15.Click += new System.EventHandler(this.btnDays_Click);
             // 
             // btnDay9
             // 
@@ -431,7 +412,6 @@
             this.btnDay9.TabIndex = 88;
             this.btnDay9.Text = "9";
             this.btnDay9.UseVisualStyleBackColor = true;
-            this.btnDay9.Click += new System.EventHandler(this.btnDays_Click);
             // 
             // btnDay10
             // 
@@ -447,7 +427,6 @@
             this.btnDay10.TabIndex = 87;
             this.btnDay10.Text = "10";
             this.btnDay10.UseVisualStyleBackColor = true;
-            this.btnDay10.Click += new System.EventHandler(this.btnDays_Click);
             // 
             // btnDay11
             // 
@@ -463,7 +442,6 @@
             this.btnDay11.TabIndex = 86;
             this.btnDay11.Text = "11";
             this.btnDay11.UseVisualStyleBackColor = true;
-            this.btnDay11.Click += new System.EventHandler(this.btnDays_Click);
             // 
             // btnDay12
             // 
@@ -479,7 +457,6 @@
             this.btnDay12.TabIndex = 85;
             this.btnDay12.Text = "12";
             this.btnDay12.UseVisualStyleBackColor = true;
-            this.btnDay12.Click += new System.EventHandler(this.btnDays_Click);
             // 
             // btnDay13
             // 
@@ -495,7 +472,6 @@
             this.btnDay13.TabIndex = 84;
             this.btnDay13.Text = "13";
             this.btnDay13.UseVisualStyleBackColor = true;
-            this.btnDay13.Click += new System.EventHandler(this.btnDays_Click);
             // 
             // btnDay14
             // 
@@ -511,7 +487,6 @@
             this.btnDay14.TabIndex = 83;
             this.btnDay14.Text = "14";
             this.btnDay14.UseVisualStyleBackColor = true;
-            this.btnDay14.Click += new System.EventHandler(this.btnDays_Click);
             // 
             // btnDay8
             // 
@@ -527,7 +502,6 @@
             this.btnDay8.TabIndex = 82;
             this.btnDay8.Text = "8";
             this.btnDay8.UseVisualStyleBackColor = true;
-            this.btnDay8.Click += new System.EventHandler(this.btnDays_Click);
             // 
             // btnDay2
             // 
@@ -543,7 +517,6 @@
             this.btnDay2.TabIndex = 81;
             this.btnDay2.Text = "2";
             this.btnDay2.UseVisualStyleBackColor = true;
-            this.btnDay2.Click += new System.EventHandler(this.btnDays_Click);
             // 
             // btnDay3
             // 
@@ -559,7 +532,6 @@
             this.btnDay3.TabIndex = 80;
             this.btnDay3.Text = "3";
             this.btnDay3.UseVisualStyleBackColor = true;
-            this.btnDay3.Click += new System.EventHandler(this.btnDays_Click);
             // 
             // btnDay4
             // 
@@ -575,7 +547,6 @@
             this.btnDay4.TabIndex = 79;
             this.btnDay4.Text = "4";
             this.btnDay4.UseVisualStyleBackColor = true;
-            this.btnDay4.Click += new System.EventHandler(this.btnDays_Click);
             // 
             // btnDay5
             // 
@@ -591,7 +562,6 @@
             this.btnDay5.TabIndex = 78;
             this.btnDay5.Text = "5";
             this.btnDay5.UseVisualStyleBackColor = true;
-            this.btnDay5.Click += new System.EventHandler(this.btnDays_Click);
             // 
             // btnDay6
             // 
@@ -607,7 +577,6 @@
             this.btnDay6.TabIndex = 77;
             this.btnDay6.Text = "6";
             this.btnDay6.UseVisualStyleBackColor = true;
-            this.btnDay6.Click += new System.EventHandler(this.btnDays_Click);
             // 
             // btnDay7
             // 
@@ -623,7 +592,6 @@
             this.btnDay7.TabIndex = 76;
             this.btnDay7.Text = "7";
             this.btnDay7.UseVisualStyleBackColor = true;
-            this.btnDay7.Click += new System.EventHandler(this.btnDays_Click);
             // 
             // btnDay1
             // 
@@ -639,7 +607,6 @@
             this.btnDay1.TabIndex = 75;
             this.btnDay1.Text = "1";
             this.btnDay1.UseVisualStyleBackColor = true;
-            this.btnDay1.Click += new System.EventHandler(this.btnDays_Click);
             // 
             // tabPage2
             // 
