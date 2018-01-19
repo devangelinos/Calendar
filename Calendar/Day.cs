@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Calendar
 {
+    [Serializable]
     public struct Day
     {
         public string Caption { get; set; }
-        public Event Event { get; set; }
+        public List<Event> Events { get; set; }
     }
 }

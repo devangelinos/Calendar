@@ -14,9 +14,7 @@ namespace Calendar
 {
     public partial class EventForm : Form
     {
-        string _eventsFile = Application.StartupPath + "\\events.dat";
-
-        List<Event> _events;
+        string _eventsFile = Application.StartupPath + "\\Events.Q";
 
         DateTime _eventDateTime;
 
@@ -27,6 +25,8 @@ namespace Calendar
 
             _eventDateTime = eventTime;
             switchColor.SelectedIndex = 0;
+
+            this.Text = _eventDateTime.ToLongDateString();
         }
 
         private void LoadEvents()
@@ -36,7 +36,7 @@ namespace Calendar
             BinaryFormatter bf = new BinaryFormatter();
             MemoryStream ms = new MemoryStream(bytes);
 
-            _events = bf.Deserialize(ms) as List<Event>;
+            MainForm.CalendarEvents = bf.Deserialize(ms) as List<Day>;
         }
 
         private void SaveEvent()
@@ -75,9 +75,14 @@ namespace Calendar
                     break;
             }
 
-            _events.Add(x);
+            if (MainForm.Days[_eventDateTime.Day].Events == null)
+            {
+                MainForm.Days[_eventDateTime.Day].Events = new List<Event>();
+            }
 
-            bf.Serialize(ms, _events);
+            MainForm.Days[_eventDateTime.Day].Events.Add(x);
+
+            bf.Serialize(ms, MainForm.CalendarEvents);
             byte[] bytes = ms.ToArray();
 
             File.WriteAllBytes(_eventsFile, bytes);
@@ -86,15 +91,20 @@ namespace Calendar
         private void AddEventForm_Load(object sender, EventArgs e)
         {
             if (File.Exists(_eventsFile)) LoadEvents();
-            else _events = new List<Event>();
+            else MainForm.CalendarEvents = new List<Day>();
 
-            foreach (Event x in _events)
+            foreach (Day x in MainForm.CalendarEvents)
             {
-                if (x.DateTime == _eventDateTime)
+                if (x.Events != null)
                 {
-                    txtTitle.Text = x.Title;
-                    txtText.Text = x.Text;
-                    // ...
+                    if (x.Events.Count == 0) continue;
+
+                    if (x.Events[_eventDateTime.Day].DateTime == _eventDateTime)
+                    {
+                        txtTitle.Text = x.Events[_eventDateTime.Day].Title;
+                        txtText.Text = x.Events[_eventDateTime.Day].Text;
+                        // ...
+                    }
                 }
             }
         }

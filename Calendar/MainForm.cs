@@ -11,14 +11,17 @@ using System.Windows.Forms;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace Calendar
 {
     public partial class MainForm : Form
     {
+        internal static Day[] Days = new Day[31];
+        internal static List<Day> CalendarEvents;
+
         string _eventsFile = Application.StartupPath + "\\Events.Q";
 
-        Day[] _days = new Day[31];
         List<Button> _dayButtons = new List<Button>();
 
         int _currentYear = DateTime.Today.Year;
@@ -99,12 +102,14 @@ namespace Calendar
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
 
+            LoadCalendarEvents();
+
             LoadSwitchYear();
             LoadSwitchMonth();
 
             switchYear.Text = _currentYear.ToString();
             switchMonth.Text = DateTime.Today.ToString("MMMM", CultureInfo.CreateSpecificCulture("en-US"));
-
+            
             LoadDayButtonsList();
 
             LoadMonthView(_currentYear, _currentMonth);
@@ -119,16 +124,22 @@ namespace Calendar
         {
             DateTime dt = new DateTime(year, month, 1);
 
-            for (int i = 0; i < _days.Length; i++)
+            for (int i = 0; i < Days.Length; i++)
             {
                 while (dt.Date.Month == month)
                 {
-                    _days[i].Caption = dt.ToString("ddd dd", CultureInfo.CreateSpecificCulture("en-US"));
+                    Days[i].Caption = dt.ToString("ddd dd", CultureInfo.CreateSpecificCulture("en-US"));
 
-                    _dayButtons[i].Text = _days[i].Caption;
-                    if (_days[i].Event != null)
+                    _dayButtons[i].Text = Days[i].Caption;
+
+                    if (Days[i].Events == null) Days[i].Events = new List<Event>();
+                    
+                    if (Days[i].Events.Count > 0)
                     {
-                        _dayButtons[i].BackColor = _days[i].Event.Color;
+                        //if (Days[i].Events[i].DateTime.Year == dt.Year && Days[i].Events[i].DateTime.Month == dt.Month)
+                        //{
+                        //    _dayButtons[i].BackColor = Days[i].Events[i].Color;
+                        //}
                     }
 
                     dt = dt.AddDays(1);
@@ -153,14 +164,27 @@ namespace Calendar
             }
         }
 
-        //private void LoadEvents()
-        //{
-        //    byte[] bytes = File.ReadAllBytes(_eventsFile);
+        private void LoadCalendarEvents()
+        {
+            if (File.Exists(_eventsFile))
+            {
+                byte[] bytes = File.ReadAllBytes(_eventsFile);
 
-        //    BinaryFormatter bf = new BinaryFormatter();
-        //    MemoryStream ms = new MemoryStream(bytes);
+                BinaryFormatter bf = new BinaryFormatter();
+                MemoryStream ms = new MemoryStream(bytes);
 
-        //    _events = bf.Deserialize(ms) as List<Event>;
-        //}
+                CalendarEvents = bf.Deserialize(ms) as List<Day>;
+            }
+        }
+
+        private void btnDay_Click(object sender, EventArgs e)
+        {
+            Button x = (Button)sender;
+            
+            DateTime dt = new DateTime(Convert.ToInt32(switchYear.Text), switchMonth.SelectedIndex + 1, Convert.ToInt32(Regex.Replace(x.Text, "[^0-9 _]", "")));
+
+            EventForm f = new EventForm(dt);
+            f.ShowDialog();
+        }
     }
 }
