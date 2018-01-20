@@ -47,6 +47,30 @@ namespace Calendar
             while (min <= 2118);
         }
 
+        private void LoadSummary()
+        {
+            panelSumamry.Controls.Clear();
+
+            foreach (Day x in Days)
+            {
+                if (x.Events == null) continue;
+                foreach (Event y in x.Events)
+                {
+                    if (y.DateTime.Month == _currentMonth && y.DateTime.Year == _currentYear)
+                    {
+                        Label l = new Label();
+
+                        l.AutoSize = true;
+                        l.Font = new Font("Segoe UI Semibold", 14);
+                        l.Text = string.Format("{0}: {1}\n({2} - {3})", y.Title, y.Text, y.DateTime.ToLongDateString(), y.DateTime.ToLongTimeString());
+                        l.Location = new Point(10, panelSumamry.Controls.Count * 80);
+
+                        panelSumamry.Controls.Add(l);
+                    }
+                }
+            }
+        }
+
         private void LoadSwitchMonth()
         {
             switchMonth.Items.Add("January");
@@ -113,6 +137,7 @@ namespace Calendar
             
             LoadDayButtonsList();
 
+            LoadSummary();
             LoadMonthView(_currentYear, _currentMonth);
         }
 
@@ -197,6 +222,8 @@ namespace Calendar
             {
                 LoadMonthView(Convert.ToInt32(switchYear.Text), switchMonth.SelectedIndex + 1);
             }
+
+            LoadSummary();
         }
     }
 }

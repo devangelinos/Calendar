@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.calendarTabs = new System.Windows.Forms.TabControl();
+            this.monthTab = new System.Windows.Forms.TabPage();
             this.switchMonth = new System.Windows.Forms.ComboBox();
             this.btnDay30 = new System.Windows.Forms.Button();
             this.switchYear = new System.Windows.Forms.ComboBox();
@@ -63,72 +63,77 @@
             this.btnDay6 = new System.Windows.Forms.Button();
             this.btnDay7 = new System.Windows.Forms.Button();
             this.btnDay1 = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.dayTab = new System.Windows.Forms.TabPage();
+            this.summaryTab = new System.Windows.Forms.TabPage();
+            this.panelSumamry = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.calendarTabs.SuspendLayout();
+            this.monthTab.SuspendLayout();
+            this.summaryTab.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // calendarTabs
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(955, 619);
-            this.tabControl1.TabIndex = 0;
+            this.calendarTabs.Controls.Add(this.summaryTab);
+            this.calendarTabs.Controls.Add(this.monthTab);
+            this.calendarTabs.Controls.Add(this.dayTab);
+            this.calendarTabs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.calendarTabs.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.calendarTabs.Location = new System.Drawing.Point(0, 0);
+            this.calendarTabs.Name = "calendarTabs";
+            this.calendarTabs.SelectedIndex = 0;
+            this.calendarTabs.Size = new System.Drawing.Size(955, 619);
+            this.calendarTabs.TabIndex = 0;
             // 
-            // tabPage1
+            // monthTab
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.tabPage1.Controls.Add(this.switchMonth);
-            this.tabPage1.Controls.Add(this.btnDay30);
-            this.tabPage1.Controls.Add(this.switchYear);
-            this.tabPage1.Controls.Add(this.btnDay28);
-            this.tabPage1.Controls.Add(this.btnDay29);
-            this.tabPage1.Controls.Add(this.btnDay31);
-            this.tabPage1.Controls.Add(this.btnDay23);
-            this.tabPage1.Controls.Add(this.btnDay24);
-            this.tabPage1.Controls.Add(this.btnDay25);
-            this.tabPage1.Controls.Add(this.btnDay26);
-            this.tabPage1.Controls.Add(this.btnDay27);
-            this.tabPage1.Controls.Add(this.btnDay22);
-            this.tabPage1.Controls.Add(this.btnDay16);
-            this.tabPage1.Controls.Add(this.btnDay17);
-            this.tabPage1.Controls.Add(this.btnDay18);
-            this.tabPage1.Controls.Add(this.btnDay19);
-            this.tabPage1.Controls.Add(this.btnDay20);
-            this.tabPage1.Controls.Add(this.btnDay21);
-            this.tabPage1.Controls.Add(this.btnDay15);
-            this.tabPage1.Controls.Add(this.btnDay9);
-            this.tabPage1.Controls.Add(this.btnDay10);
-            this.tabPage1.Controls.Add(this.btnDay11);
-            this.tabPage1.Controls.Add(this.btnDay12);
-            this.tabPage1.Controls.Add(this.btnDay13);
-            this.tabPage1.Controls.Add(this.btnDay14);
-            this.tabPage1.Controls.Add(this.btnDay8);
-            this.tabPage1.Controls.Add(this.btnDay2);
-            this.tabPage1.Controls.Add(this.btnDay3);
-            this.tabPage1.Controls.Add(this.btnDay4);
-            this.tabPage1.Controls.Add(this.btnDay5);
-            this.tabPage1.Controls.Add(this.btnDay6);
-            this.tabPage1.Controls.Add(this.btnDay7);
-            this.tabPage1.Controls.Add(this.btnDay1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(947, 586);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Months";
+            this.monthTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.monthTab.Controls.Add(this.switchMonth);
+            this.monthTab.Controls.Add(this.btnDay30);
+            this.monthTab.Controls.Add(this.switchYear);
+            this.monthTab.Controls.Add(this.btnDay28);
+            this.monthTab.Controls.Add(this.btnDay29);
+            this.monthTab.Controls.Add(this.btnDay31);
+            this.monthTab.Controls.Add(this.btnDay23);
+            this.monthTab.Controls.Add(this.btnDay24);
+            this.monthTab.Controls.Add(this.btnDay25);
+            this.monthTab.Controls.Add(this.btnDay26);
+            this.monthTab.Controls.Add(this.btnDay27);
+            this.monthTab.Controls.Add(this.btnDay22);
+            this.monthTab.Controls.Add(this.btnDay16);
+            this.monthTab.Controls.Add(this.btnDay17);
+            this.monthTab.Controls.Add(this.btnDay18);
+            this.monthTab.Controls.Add(this.btnDay19);
+            this.monthTab.Controls.Add(this.btnDay20);
+            this.monthTab.Controls.Add(this.btnDay21);
+            this.monthTab.Controls.Add(this.btnDay15);
+            this.monthTab.Controls.Add(this.btnDay9);
+            this.monthTab.Controls.Add(this.btnDay10);
+            this.monthTab.Controls.Add(this.btnDay11);
+            this.monthTab.Controls.Add(this.btnDay12);
+            this.monthTab.Controls.Add(this.btnDay13);
+            this.monthTab.Controls.Add(this.btnDay14);
+            this.monthTab.Controls.Add(this.btnDay8);
+            this.monthTab.Controls.Add(this.btnDay2);
+            this.monthTab.Controls.Add(this.btnDay3);
+            this.monthTab.Controls.Add(this.btnDay4);
+            this.monthTab.Controls.Add(this.btnDay5);
+            this.monthTab.Controls.Add(this.btnDay6);
+            this.monthTab.Controls.Add(this.btnDay7);
+            this.monthTab.Controls.Add(this.btnDay1);
+            this.monthTab.Location = new System.Drawing.Point(4, 29);
+            this.monthTab.Name = "monthTab";
+            this.monthTab.Padding = new System.Windows.Forms.Padding(3);
+            this.monthTab.Size = new System.Drawing.Size(947, 586);
+            this.monthTab.TabIndex = 0;
+            this.monthTab.Text = "Month";
             // 
             // switchMonth
             // 
             this.switchMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.switchMonth.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.switchMonth.FormattingEnabled = true;
-            this.switchMonth.Location = new System.Drawing.Point(141, 51);
+            this.switchMonth.Location = new System.Drawing.Point(180, 61);
             this.switchMonth.Name = "switchMonth";
             this.switchMonth.Size = new System.Drawing.Size(271, 36);
             this.switchMonth.TabIndex = 108;
@@ -141,7 +146,7 @@
             this.btnDay30.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDay30.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDay30.ForeColor = System.Drawing.Color.White;
-            this.btnDay30.Location = new System.Drawing.Point(225, 433);
+            this.btnDay30.Location = new System.Drawing.Point(264, 443);
             this.btnDay30.Name = "btnDay30";
             this.btnDay30.Size = new System.Drawing.Size(78, 79);
             this.btnDay30.TabIndex = 107;
@@ -154,7 +159,7 @@
             this.switchYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.switchYear.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.switchYear.FormattingEnabled = true;
-            this.switchYear.Location = new System.Drawing.Point(418, 51);
+            this.switchYear.Location = new System.Drawing.Point(457, 61);
             this.switchYear.Name = "switchYear";
             this.switchYear.Size = new System.Drawing.Size(128, 36);
             this.switchYear.TabIndex = 106;
@@ -167,7 +172,7 @@
             this.btnDay28.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDay28.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDay28.ForeColor = System.Drawing.Color.White;
-            this.btnDay28.Location = new System.Drawing.Point(644, 348);
+            this.btnDay28.Location = new System.Drawing.Point(683, 358);
             this.btnDay28.Name = "btnDay28";
             this.btnDay28.Size = new System.Drawing.Size(78, 79);
             this.btnDay28.TabIndex = 105;
@@ -183,7 +188,7 @@
             this.btnDay29.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDay29.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDay29.ForeColor = System.Drawing.Color.White;
-            this.btnDay29.Location = new System.Drawing.Point(141, 433);
+            this.btnDay29.Location = new System.Drawing.Point(180, 443);
             this.btnDay29.Name = "btnDay29";
             this.btnDay29.Size = new System.Drawing.Size(78, 79);
             this.btnDay29.TabIndex = 104;
@@ -199,7 +204,7 @@
             this.btnDay31.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDay31.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDay31.ForeColor = System.Drawing.Color.White;
-            this.btnDay31.Location = new System.Drawing.Point(309, 433);
+            this.btnDay31.Location = new System.Drawing.Point(348, 443);
             this.btnDay31.Name = "btnDay31";
             this.btnDay31.Size = new System.Drawing.Size(78, 79);
             this.btnDay31.TabIndex = 103;
@@ -215,7 +220,7 @@
             this.btnDay23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDay23.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDay23.ForeColor = System.Drawing.Color.White;
-            this.btnDay23.Location = new System.Drawing.Point(225, 348);
+            this.btnDay23.Location = new System.Drawing.Point(264, 358);
             this.btnDay23.Name = "btnDay23";
             this.btnDay23.Size = new System.Drawing.Size(78, 79);
             this.btnDay23.TabIndex = 101;
@@ -231,7 +236,7 @@
             this.btnDay24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDay24.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDay24.ForeColor = System.Drawing.Color.White;
-            this.btnDay24.Location = new System.Drawing.Point(309, 348);
+            this.btnDay24.Location = new System.Drawing.Point(348, 358);
             this.btnDay24.Name = "btnDay24";
             this.btnDay24.Size = new System.Drawing.Size(78, 79);
             this.btnDay24.TabIndex = 100;
@@ -247,7 +252,7 @@
             this.btnDay25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDay25.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDay25.ForeColor = System.Drawing.Color.White;
-            this.btnDay25.Location = new System.Drawing.Point(393, 348);
+            this.btnDay25.Location = new System.Drawing.Point(432, 358);
             this.btnDay25.Name = "btnDay25";
             this.btnDay25.Size = new System.Drawing.Size(78, 79);
             this.btnDay25.TabIndex = 99;
@@ -263,7 +268,7 @@
             this.btnDay26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDay26.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDay26.ForeColor = System.Drawing.Color.White;
-            this.btnDay26.Location = new System.Drawing.Point(477, 348);
+            this.btnDay26.Location = new System.Drawing.Point(516, 358);
             this.btnDay26.Name = "btnDay26";
             this.btnDay26.Size = new System.Drawing.Size(78, 79);
             this.btnDay26.TabIndex = 98;
@@ -279,7 +284,7 @@
             this.btnDay27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDay27.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDay27.ForeColor = System.Drawing.Color.White;
-            this.btnDay27.Location = new System.Drawing.Point(561, 348);
+            this.btnDay27.Location = new System.Drawing.Point(600, 358);
             this.btnDay27.Name = "btnDay27";
             this.btnDay27.Size = new System.Drawing.Size(78, 79);
             this.btnDay27.TabIndex = 97;
@@ -295,7 +300,7 @@
             this.btnDay22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDay22.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDay22.ForeColor = System.Drawing.Color.White;
-            this.btnDay22.Location = new System.Drawing.Point(141, 348);
+            this.btnDay22.Location = new System.Drawing.Point(180, 358);
             this.btnDay22.Name = "btnDay22";
             this.btnDay22.Size = new System.Drawing.Size(78, 79);
             this.btnDay22.TabIndex = 96;
@@ -311,7 +316,7 @@
             this.btnDay16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDay16.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDay16.ForeColor = System.Drawing.Color.White;
-            this.btnDay16.Location = new System.Drawing.Point(225, 263);
+            this.btnDay16.Location = new System.Drawing.Point(264, 273);
             this.btnDay16.Name = "btnDay16";
             this.btnDay16.Size = new System.Drawing.Size(78, 79);
             this.btnDay16.TabIndex = 95;
@@ -327,7 +332,7 @@
             this.btnDay17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDay17.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDay17.ForeColor = System.Drawing.Color.White;
-            this.btnDay17.Location = new System.Drawing.Point(309, 263);
+            this.btnDay17.Location = new System.Drawing.Point(348, 273);
             this.btnDay17.Name = "btnDay17";
             this.btnDay17.Size = new System.Drawing.Size(78, 79);
             this.btnDay17.TabIndex = 94;
@@ -343,7 +348,7 @@
             this.btnDay18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDay18.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDay18.ForeColor = System.Drawing.Color.White;
-            this.btnDay18.Location = new System.Drawing.Point(392, 263);
+            this.btnDay18.Location = new System.Drawing.Point(431, 273);
             this.btnDay18.Name = "btnDay18";
             this.btnDay18.Size = new System.Drawing.Size(78, 79);
             this.btnDay18.TabIndex = 93;
@@ -359,7 +364,7 @@
             this.btnDay19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDay19.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDay19.ForeColor = System.Drawing.Color.White;
-            this.btnDay19.Location = new System.Drawing.Point(476, 263);
+            this.btnDay19.Location = new System.Drawing.Point(515, 273);
             this.btnDay19.Name = "btnDay19";
             this.btnDay19.Size = new System.Drawing.Size(78, 79);
             this.btnDay19.TabIndex = 92;
@@ -375,7 +380,7 @@
             this.btnDay20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDay20.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDay20.ForeColor = System.Drawing.Color.White;
-            this.btnDay20.Location = new System.Drawing.Point(560, 263);
+            this.btnDay20.Location = new System.Drawing.Point(599, 273);
             this.btnDay20.Name = "btnDay20";
             this.btnDay20.Size = new System.Drawing.Size(78, 79);
             this.btnDay20.TabIndex = 91;
@@ -391,7 +396,7 @@
             this.btnDay21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDay21.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDay21.ForeColor = System.Drawing.Color.White;
-            this.btnDay21.Location = new System.Drawing.Point(644, 263);
+            this.btnDay21.Location = new System.Drawing.Point(683, 273);
             this.btnDay21.Name = "btnDay21";
             this.btnDay21.Size = new System.Drawing.Size(78, 79);
             this.btnDay21.TabIndex = 90;
@@ -407,7 +412,7 @@
             this.btnDay15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDay15.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDay15.ForeColor = System.Drawing.Color.White;
-            this.btnDay15.Location = new System.Drawing.Point(141, 263);
+            this.btnDay15.Location = new System.Drawing.Point(180, 273);
             this.btnDay15.Name = "btnDay15";
             this.btnDay15.Size = new System.Drawing.Size(78, 79);
             this.btnDay15.TabIndex = 89;
@@ -423,7 +428,7 @@
             this.btnDay9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDay9.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDay9.ForeColor = System.Drawing.Color.White;
-            this.btnDay9.Location = new System.Drawing.Point(225, 178);
+            this.btnDay9.Location = new System.Drawing.Point(264, 188);
             this.btnDay9.Name = "btnDay9";
             this.btnDay9.Size = new System.Drawing.Size(78, 79);
             this.btnDay9.TabIndex = 88;
@@ -439,7 +444,7 @@
             this.btnDay10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDay10.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDay10.ForeColor = System.Drawing.Color.White;
-            this.btnDay10.Location = new System.Drawing.Point(309, 178);
+            this.btnDay10.Location = new System.Drawing.Point(348, 188);
             this.btnDay10.Name = "btnDay10";
             this.btnDay10.Size = new System.Drawing.Size(78, 79);
             this.btnDay10.TabIndex = 87;
@@ -455,7 +460,7 @@
             this.btnDay11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDay11.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDay11.ForeColor = System.Drawing.Color.White;
-            this.btnDay11.Location = new System.Drawing.Point(392, 178);
+            this.btnDay11.Location = new System.Drawing.Point(431, 188);
             this.btnDay11.Name = "btnDay11";
             this.btnDay11.Size = new System.Drawing.Size(78, 79);
             this.btnDay11.TabIndex = 86;
@@ -471,7 +476,7 @@
             this.btnDay12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDay12.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDay12.ForeColor = System.Drawing.Color.White;
-            this.btnDay12.Location = new System.Drawing.Point(476, 178);
+            this.btnDay12.Location = new System.Drawing.Point(515, 188);
             this.btnDay12.Name = "btnDay12";
             this.btnDay12.Size = new System.Drawing.Size(78, 79);
             this.btnDay12.TabIndex = 85;
@@ -487,7 +492,7 @@
             this.btnDay13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDay13.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDay13.ForeColor = System.Drawing.Color.White;
-            this.btnDay13.Location = new System.Drawing.Point(560, 178);
+            this.btnDay13.Location = new System.Drawing.Point(599, 188);
             this.btnDay13.Name = "btnDay13";
             this.btnDay13.Size = new System.Drawing.Size(78, 79);
             this.btnDay13.TabIndex = 84;
@@ -503,7 +508,7 @@
             this.btnDay14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDay14.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDay14.ForeColor = System.Drawing.Color.White;
-            this.btnDay14.Location = new System.Drawing.Point(644, 178);
+            this.btnDay14.Location = new System.Drawing.Point(683, 188);
             this.btnDay14.Name = "btnDay14";
             this.btnDay14.Size = new System.Drawing.Size(78, 79);
             this.btnDay14.TabIndex = 83;
@@ -519,7 +524,7 @@
             this.btnDay8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDay8.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDay8.ForeColor = System.Drawing.Color.White;
-            this.btnDay8.Location = new System.Drawing.Point(141, 178);
+            this.btnDay8.Location = new System.Drawing.Point(180, 188);
             this.btnDay8.Name = "btnDay8";
             this.btnDay8.Size = new System.Drawing.Size(78, 79);
             this.btnDay8.TabIndex = 82;
@@ -535,7 +540,7 @@
             this.btnDay2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDay2.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDay2.ForeColor = System.Drawing.Color.White;
-            this.btnDay2.Location = new System.Drawing.Point(225, 93);
+            this.btnDay2.Location = new System.Drawing.Point(264, 103);
             this.btnDay2.Name = "btnDay2";
             this.btnDay2.Size = new System.Drawing.Size(78, 79);
             this.btnDay2.TabIndex = 81;
@@ -551,7 +556,7 @@
             this.btnDay3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDay3.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDay3.ForeColor = System.Drawing.Color.White;
-            this.btnDay3.Location = new System.Drawing.Point(309, 93);
+            this.btnDay3.Location = new System.Drawing.Point(348, 103);
             this.btnDay3.Name = "btnDay3";
             this.btnDay3.Size = new System.Drawing.Size(78, 79);
             this.btnDay3.TabIndex = 80;
@@ -567,7 +572,7 @@
             this.btnDay4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDay4.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDay4.ForeColor = System.Drawing.Color.White;
-            this.btnDay4.Location = new System.Drawing.Point(392, 93);
+            this.btnDay4.Location = new System.Drawing.Point(431, 103);
             this.btnDay4.Name = "btnDay4";
             this.btnDay4.Size = new System.Drawing.Size(78, 79);
             this.btnDay4.TabIndex = 79;
@@ -583,7 +588,7 @@
             this.btnDay5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDay5.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDay5.ForeColor = System.Drawing.Color.White;
-            this.btnDay5.Location = new System.Drawing.Point(476, 93);
+            this.btnDay5.Location = new System.Drawing.Point(515, 103);
             this.btnDay5.Name = "btnDay5";
             this.btnDay5.Size = new System.Drawing.Size(78, 79);
             this.btnDay5.TabIndex = 78;
@@ -599,7 +604,7 @@
             this.btnDay6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDay6.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDay6.ForeColor = System.Drawing.Color.White;
-            this.btnDay6.Location = new System.Drawing.Point(560, 93);
+            this.btnDay6.Location = new System.Drawing.Point(599, 103);
             this.btnDay6.Name = "btnDay6";
             this.btnDay6.Size = new System.Drawing.Size(78, 79);
             this.btnDay6.TabIndex = 77;
@@ -615,7 +620,7 @@
             this.btnDay7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDay7.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDay7.ForeColor = System.Drawing.Color.White;
-            this.btnDay7.Location = new System.Drawing.Point(644, 93);
+            this.btnDay7.Location = new System.Drawing.Point(683, 103);
             this.btnDay7.Name = "btnDay7";
             this.btnDay7.Size = new System.Drawing.Size(78, 79);
             this.btnDay7.TabIndex = 76;
@@ -631,7 +636,7 @@
             this.btnDay1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDay1.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDay1.ForeColor = System.Drawing.Color.White;
-            this.btnDay1.Location = new System.Drawing.Point(141, 93);
+            this.btnDay1.Location = new System.Drawing.Point(180, 103);
             this.btnDay1.Name = "btnDay1";
             this.btnDay1.Size = new System.Drawing.Size(78, 79);
             this.btnDay1.TabIndex = 75;
@@ -639,15 +644,50 @@
             this.btnDay1.UseVisualStyleBackColor = true;
             this.btnDay1.Click += new System.EventHandler(this.btnDay_Click);
             // 
-            // tabPage2
+            // dayTab
             // 
-            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(947, 586);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Day";
+            this.dayTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.dayTab.Location = new System.Drawing.Point(4, 29);
+            this.dayTab.Name = "dayTab";
+            this.dayTab.Padding = new System.Windows.Forms.Padding(3);
+            this.dayTab.Size = new System.Drawing.Size(947, 586);
+            this.dayTab.TabIndex = 1;
+            this.dayTab.Text = "Day";
+            // 
+            // summaryTab
+            // 
+            this.summaryTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.summaryTab.Controls.Add(this.label1);
+            this.summaryTab.Controls.Add(this.panelSumamry);
+            this.summaryTab.ForeColor = System.Drawing.Color.White;
+            this.summaryTab.Location = new System.Drawing.Point(4, 29);
+            this.summaryTab.Name = "summaryTab";
+            this.summaryTab.Padding = new System.Windows.Forms.Padding(3);
+            this.summaryTab.Size = new System.Drawing.Size(947, 586);
+            this.summaryTab.TabIndex = 2;
+            this.summaryTab.Text = "Summary";
+            // 
+            // panelSumamry
+            // 
+            this.panelSumamry.AutoScroll = true;
+            this.panelSumamry.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelSumamry.Location = new System.Drawing.Point(3, 62);
+            this.panelSumamry.Name = "panelSumamry";
+            this.panelSumamry.Size = new System.Drawing.Size(941, 521);
+            this.panelSumamry.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Silver;
+            this.label1.Location = new System.Drawing.Point(3, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(941, 43);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "View your month at a glance";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MainForm
             // 
@@ -655,21 +695,22 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(955, 619);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.calendarTabs);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calendar";
             this.Load += new System.EventHandler(this.MainForm_Load);
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
+            this.calendarTabs.ResumeLayout(false);
+            this.monthTab.ResumeLayout(false);
+            this.summaryTab.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabControl calendarTabs;
+        private System.Windows.Forms.TabPage monthTab;
         private System.Windows.Forms.Button btnDay28;
         private System.Windows.Forms.Button btnDay29;
         private System.Windows.Forms.Button btnDay31;
@@ -700,10 +741,13 @@
         private System.Windows.Forms.Button btnDay6;
         private System.Windows.Forms.Button btnDay7;
         private System.Windows.Forms.Button btnDay1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage dayTab;
         private System.Windows.Forms.ComboBox switchYear;
         private System.Windows.Forms.Button btnDay30;
         private System.Windows.Forms.ComboBox switchMonth;
+        private System.Windows.Forms.TabPage summaryTab;
+        private System.Windows.Forms.Panel panelSumamry;
+        private System.Windows.Forms.Label label1;
     }
 }
 
