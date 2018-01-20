@@ -143,6 +143,10 @@ namespace Calendar
                             {
                                 _dayButtons[i].BackColor = Color.FromArgb(255, x.R, x.G, x.B);
                             }
+                            else
+                            {
+                                _dayButtons[i].BackColor = Color.FromArgb(255, 20, 20, 20);
+                            }
                         }
                     }
 
