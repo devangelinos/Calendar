@@ -134,11 +134,11 @@ namespace Calendar
             this.Close();
         }
 
-<<<<<<< HEAD
         private void txtFromTo_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
-=======
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             foreach (Day x in MainForm.Days)
@@ -164,7 +164,6 @@ namespace Calendar
             xmls.Serialize(fs, MainForm.Days);
             fs.Close();
             this.Close();
->>>>>>> 508507094ee25d67950d316b60a57d17a42397bc
         }
     }
 }
