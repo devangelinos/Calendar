@@ -78,9 +78,9 @@ namespace Calendar
                     x.B = 211;
                     break;
                 case "Pink":
-                    x.R = 230;
-                    x.G = 230;
-                    x.B = 250;
+                    x.R = 255;
+                    x.G = 182;
+                    x.B = 193;
                     break;
                 default:
                     x.R = 20;
