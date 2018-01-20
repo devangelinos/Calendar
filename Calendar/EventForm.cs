@@ -75,6 +75,7 @@ namespace Calendar
                     break;
             }
 
+            MessageBox.Show(x.Color.ToString());
             if (MainForm.Days[_eventDateTime.Day].Events == null)
             {
                 MainForm.Days[_eventDateTime.Day].Events = new List<Event>();

@@ -145,14 +145,14 @@ namespace Calendar
                     
                     if (Days[i].Events.Count > 0)
                     {
-                        try
+                        foreach (Event x in Days[i].Events)
                         {
-                            if (Days[i].Events[i].DateTime.Year == dt.Year && Days[i].Events[i].DateTime.Month == dt.Month)
+                            if (x.DateTime.Year == dt.Year && x.DateTime.Month == dt.Month)
                             {
-                                _dayButtons[i].BackColor = Days[i].Events[i].Color;
+                                _dayButtons[i].BackColor = x.Color;
+                                MessageBox.Show(_dayButtons[i].BackColor.ToString());
                             }
                         }
-                        catch { }
                     }
 
                     dt = dt.AddDays(1);
