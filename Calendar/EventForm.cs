@@ -110,11 +110,14 @@ namespace Calendar
                 {
                     if (x.Events.Count == 0) continue;
 
-                    if (x.Events[_eventDateTime.Day - 1].DateTime == _eventDateTime)
+                    foreach (Event y in x.Events)
                     {
-                        txtTitle.Text = x.Events[_eventDateTime.Day - 1].Title;
-                        txtText.Text = x.Events[_eventDateTime.Day - 1].Text;
-                        // ...
+                        if (y.DateTime == _eventDateTime)
+                        {
+                            txtTitle.Text = y.Title;
+                            txtText.Text = y.Text;
+                            // ...
+                        }
                     }
                 }
             }
