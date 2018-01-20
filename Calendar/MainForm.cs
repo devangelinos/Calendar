@@ -150,14 +150,21 @@ namespace Calendar
         {
             DateTime dt = new DateTime(year, month, 1);
 
+            foreach (Button x in _dayButtons)
+            {
+                x.Text = string.Empty;
+                x.Visible = false;
+            }
+
             for (int i = 0; i < Days.Length; i++)
             {
                 while (dt.Month == month)
                 {
+                    //Adding days
                     Days[i].Caption = dt.ToString("ddd dd", CultureInfo.CreateSpecificCulture("en-US"));
-
                     _dayButtons[i].Text = Days[i].Caption;
-
+                    _dayButtons[i].Visible = true;
+                    //Adding event colours
                     if (Days[i].Events == null) Days[i].Events = new List<Event>();
                     
                     if (Days[i].Events.Count > 0)
@@ -172,11 +179,13 @@ namespace Calendar
                             {
                                 _dayButtons[i].BackColor = Color.FromArgb(255, 20, 20, 20);
                             }
+                            
                         }
                     }
 
                     dt = dt.AddDays(1);
                     break;
+
                 }
             }
         }
