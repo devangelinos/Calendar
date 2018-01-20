@@ -188,6 +188,11 @@ namespace Calendar
 
             EventForm f = new EventForm(dt);
             f.ShowDialog();
+
+            if (!string.IsNullOrEmpty(switchYear.Text))
+            {
+                LoadMonthView(Convert.ToInt32(switchYear.Text), switchMonth.SelectedIndex + 1);
+            }
         }
     }
 }
