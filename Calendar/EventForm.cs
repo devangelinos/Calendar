@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Runtime.Serialization.Formatters.Binary;
+using System.Xml;
+using System.Xml.Serialization;
 using System.IO;
 
 namespace Calendar
@@ -31,18 +32,17 @@ namespace Calendar
 
         private void LoadEvents()
         {
-            byte[] bytes = File.ReadAllBytes(_eventsFile);
+            XmlSerializer xmlds = new XmlSerializer(typeof(Day[]));
+            FileStream fs = new FileStream(_eventsFile, FileMode.Open);
 
-            BinaryFormatter bf = new BinaryFormatter();
-            MemoryStream ms = new MemoryStream(bytes);
-
-            MainForm.CalendarEvents = bf.Deserialize(ms) as List<Day>;
+            MainForm.Days = xmlds.Deserialize(fs) as Day[];
+            fs.Close();
         }
 
         private void SaveEvent()
         {
-            BinaryFormatter bf = new BinaryFormatter();
-            MemoryStream ms = new MemoryStream();
+            XmlSerializer xmls = new XmlSerializer(typeof(Day[]));
+            FileStream fs = new FileStream(_eventsFile, FileMode.OpenOrCreate);
 
             Event x = new Event();
             x.Title = txtTitle.Text;
@@ -82,10 +82,8 @@ namespace Calendar
 
             MainForm.Days[_eventDateTime.Day].Events.Add(x);
 
-            bf.Serialize(ms, MainForm.CalendarEvents);
-            byte[] bytes = ms.ToArray();
-
-            File.WriteAllBytes(_eventsFile, bytes);
+            xmls.Serialize(fs, MainForm.Days);
+            fs.Close();
         }
 
         private void AddEventForm_Load(object sender, EventArgs e)
@@ -93,20 +91,20 @@ namespace Calendar
             if (File.Exists(_eventsFile)) LoadEvents();
             else MainForm.CalendarEvents = new List<Day>();
 
-            foreach (Day x in MainForm.CalendarEvents)
-            {
-                if (x.Events != null)
-                {
-                    if (x.Events.Count == 0) continue;
+            //foreach (Day x in MainForm.CalendarEvents)
+            //{
+            //    if (x.Events != null)
+            //    {
+            //        if (x.Events.Count == 0) continue;
 
-                    if (x.Events[_eventDateTime.Day].DateTime == _eventDateTime)
-                    {
-                        txtTitle.Text = x.Events[_eventDateTime.Day].Title;
-                        txtText.Text = x.Events[_eventDateTime.Day].Text;
-                        // ...
-                    }
-                }
-            }
+            //        if (x.Events[_eventDateTime.Day].DateTime == _eventDateTime)
+            //        {
+            //            txtTitle.Text = x.Events[_eventDateTime.Day].Title;
+            //            txtText.Text = x.Events[_eventDateTime.Day].Text;
+            //            // ...
+            //        }
+            //    }
+            //}
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

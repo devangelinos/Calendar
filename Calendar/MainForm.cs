@@ -9,7 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
+using System.Xml;
+using System.Xml.Serialization;
 using System.Globalization;
 using System.Text.RegularExpressions;
 
@@ -118,6 +119,14 @@ namespace Calendar
         private void MainForm_Load(object sender, EventArgs e)
         {
             LoadSwitchHandlers();
+            
+            //foreach (var x in Days)
+            //{
+            //    foreach (var y in x.Events)
+            //    {
+            //        Console.WriteLine(y.Text);
+            //    }
+            //}
         }
 
         private void LoadMonthView(int year, int month)
@@ -126,7 +135,7 @@ namespace Calendar
 
             for (int i = 0; i < Days.Length; i++)
             {
-                while (dt.Date.Month == month)
+                while (dt.Month == month)
                 {
                     Days[i].Caption = dt.ToString("ddd dd", CultureInfo.CreateSpecificCulture("en-US"));
 
@@ -136,10 +145,14 @@ namespace Calendar
                     
                     if (Days[i].Events.Count > 0)
                     {
-                        //if (Days[i].Events[i].DateTime.Year == dt.Year && Days[i].Events[i].DateTime.Month == dt.Month)
-                        //{
-                        //    _dayButtons[i].BackColor = Days[i].Events[i].Color;
-                        //}
+                        try
+                        {
+                            if (Days[i].Events[i].DateTime.Year == dt.Year && Days[i].Events[i].DateTime.Month == dt.Month)
+                            {
+                                _dayButtons[i].BackColor = Days[i].Events[i].Color;
+                            }
+                        }
+                        catch { }
                     }
 
                     dt = dt.AddDays(1);
@@ -168,12 +181,11 @@ namespace Calendar
         {
             if (File.Exists(_eventsFile))
             {
-                byte[] bytes = File.ReadAllBytes(_eventsFile);
+                XmlSerializer xmlds = new XmlSerializer(typeof(Day[]));
+                FileStream fs = new FileStream(_eventsFile, FileMode.Open);
 
-                BinaryFormatter bf = new BinaryFormatter();
-                MemoryStream ms = new MemoryStream(bytes);
-
-                CalendarEvents = bf.Deserialize(ms) as List<Day>;
+                Days = xmlds.Deserialize(fs) as Day[];
+                fs.Close();
             }
         }
 
