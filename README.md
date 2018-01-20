@@ -1,3 +1,3 @@
 Calendar experimental builds.
 
-deadmoon © 2018
+devangelinos/deadmoon © 2018
