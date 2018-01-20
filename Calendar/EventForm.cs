@@ -53,35 +53,48 @@ namespace Calendar
             switch (switchColor.Text)
             {
                 case "Red":
-                    x.Color = Color.Red;
+                    x.R = 255;
+                    x.G = 0;
+                    x.B = 0;
                     break;
                 case "Blue":
-                    x.Color = Color.Aqua;
+                    x.R = 0;
+                    x.G = 0;
+                    x.B = 240;
                     break;
                 case "Yellow":
-                    x.Color = Color.Gold;
+                    x.R = 255;
+                    x.G = 215;
+                    x.B = 0;
                     break;
                 case "Green":
-                    x.Color = Color.LimeGreen;
+                    x.R = 50;
+                    x.G = 205;
+                    x.B = 50;
                     break;
                 case "Purple":
-                    x.Color = Color.MediumOrchid;
+                    x.R = 186;
+                    x.G = 85;
+                    x.B = 211;
                     break;
                 case "Pink":
-                    x.Color = Color.Pink;
+                    x.R = 230;
+                    x.G = 230;
+                    x.B = 250;
                     break;
                 default:
-                    x.Color = Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+                    x.R = 20;
+                    x.G = 20;
+                    x.B = 20;
                     break;
             }
 
-            MessageBox.Show(x.Color.ToString());
-            if (MainForm.Days[_eventDateTime.Day].Events == null)
+            if (MainForm.Days[_eventDateTime.Day - 1].Events == null)
             {
-                MainForm.Days[_eventDateTime.Day].Events = new List<Event>();
+                MainForm.Days[_eventDateTime.Day - 1].Events = new List<Event>();
             }
 
-            MainForm.Days[_eventDateTime.Day].Events.Add(x);
+            MainForm.Days[_eventDateTime.Day - 1].Events.Add(x);
 
             xmls.Serialize(fs, MainForm.Days);
             fs.Close();
@@ -90,22 +103,21 @@ namespace Calendar
         private void AddEventForm_Load(object sender, EventArgs e)
         {
             if (File.Exists(_eventsFile)) LoadEvents();
-            else MainForm.CalendarEvents = new List<Day>();
 
-            //foreach (Day x in MainForm.CalendarEvents)
-            //{
-            //    if (x.Events != null)
-            //    {
-            //        if (x.Events.Count == 0) continue;
+            foreach (Day x in MainForm.Days)
+            {
+                if (x.Events != null)
+                {
+                    if (x.Events.Count == 0) continue;
 
-            //        if (x.Events[_eventDateTime.Day].DateTime == _eventDateTime)
-            //        {
-            //            txtTitle.Text = x.Events[_eventDateTime.Day].Title;
-            //            txtText.Text = x.Events[_eventDateTime.Day].Text;
-            //            // ...
-            //        }
-            //    }
-            //}
+                    if (x.Events[_eventDateTime.Day - 1].DateTime == _eventDateTime)
+                    {
+                        txtTitle.Text = x.Events[_eventDateTime.Day - 1].Title;
+                        txtText.Text = x.Events[_eventDateTime.Day - 1].Text;
+                        // ...
+                    }
+                }
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

@@ -19,7 +19,7 @@ namespace Calendar
     public partial class MainForm : Form
     {
         internal static Day[] Days = new Day[31];
-        internal static List<Day> CalendarEvents;
+        //internal static List<Day> CalendarEvents;
 
         string _eventsFile = Application.StartupPath + "\\Events.Q";
 
@@ -119,14 +119,6 @@ namespace Calendar
         private void MainForm_Load(object sender, EventArgs e)
         {
             LoadSwitchHandlers();
-            
-            //foreach (var x in Days)
-            //{
-            //    foreach (var y in x.Events)
-            //    {
-            //        Console.WriteLine(y.Text);
-            //    }
-            //}
         }
 
         private void LoadMonthView(int year, int month)
@@ -149,8 +141,7 @@ namespace Calendar
                         {
                             if (x.DateTime.Year == dt.Year && x.DateTime.Month == dt.Month)
                             {
-                                _dayButtons[i].BackColor = x.Color;
-                                MessageBox.Show(_dayButtons[i].BackColor.ToString());
+                                _dayButtons[i].BackColor = Color.FromArgb(255, x.R, x.G, x.B);
                             }
                         }
                     }
