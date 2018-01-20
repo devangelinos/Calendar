@@ -21,7 +21,7 @@ namespace Calendar
         internal static Day[] Days = new Day[31];
         //internal static List<Day> CalendarEvents;
 
-        string _eventsFile = Application.StartupPath + "\\Events.Q";
+        string _eventsFile = Application.StartupPath + "\\Events.XML";
 
         List<Button> _dayButtons = new List<Button>();
 

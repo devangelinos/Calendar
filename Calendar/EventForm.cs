@@ -15,7 +15,7 @@ namespace Calendar
 {
     public partial class EventForm : Form
     {
-        string _eventsFile = Application.StartupPath + "\\Events.Q";
+        string _eventsFile = Application.StartupPath + "\\Events.XML";
 
         DateTime _eventDateTime;
 
@@ -134,9 +134,37 @@ namespace Calendar
             this.Close();
         }
 
+<<<<<<< HEAD
         private void txtFromTo_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+=======
+        private void button1_Click(object sender, EventArgs e)
+        {
+            foreach (Day x in MainForm.Days)
+            {
+                if (x.Events != null)
+                {
+                    if (x.Events.Count == 0) continue;
+
+                    foreach (Event y in x.Events)
+                    {
+                        if (y.DateTime == _eventDateTime)
+                        {
+                            int inx = x.Events.FindIndex(z => z.Text == txtText.Text && z.Title == txtTitle.Text && z.DateTime == _eventDateTime);
+                            x.Events.RemoveAt(inx);
+                            break;
+                        }
+                    }
+                }
+            }
+            File.Delete(_eventsFile);
+            XmlSerializer xmls = new XmlSerializer(typeof(Day[]));
+            FileStream fs = new FileStream(_eventsFile, FileMode.OpenOrCreate);
+            xmls.Serialize(fs, MainForm.Days);
+            fs.Close();
+            this.Close();
+>>>>>>> 508507094ee25d67950d316b60a57d17a42397bc
         }
     }
 }
