@@ -148,13 +148,17 @@ namespace Calendar
 
         private void LoadMonthView(int year, int month)
         {
+            
             DateTime dt = new DateTime(year, month, 1);
 
+            // mpakalis maximum efficiency (1000%)
             foreach (Button x in _dayButtons)
             {
                 x.Text = string.Empty;
                 x.Visible = false;
+                x.BackColor = Color.FromArgb(255, 20, 20, 20);
             }
+            //
 
             for (int i = 0; i < Days.Length; i++)
             {
@@ -226,6 +230,8 @@ namespace Calendar
 
             EventForm f = new EventForm(dt);
             f.ShowDialog();
+
+            LoadCalendarEvents();
 
             if (!string.IsNullOrEmpty(switchYear.Text))
             {
